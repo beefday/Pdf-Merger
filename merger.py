@@ -1,6 +1,6 @@
 import os
 import glob
-from PyPDF2 import PdfFileMerger, PdfReader, PdfWriter
+from PyPDF2 import PdfMerger, PdfReader, PdfWriter
 import tkinter as tk
 import tkinter.messagebox
 #import pycryptodome
@@ -21,7 +21,7 @@ def pdf_merge():
         pdf_files.append(file)
 
     # Create an instance of PdfFileMerger
-    merger = PdfFileMerger()
+    merger = PdfMerger()
 
     # Iterate through the list of PDF files and add them to the merger
     for file in pdf_files:
@@ -97,7 +97,7 @@ def pdf_merge2():
         pdf_files.append(listbox.get(i))
 
     # Create an instance of PdfFileMerger
-    merger = PdfFileMerger()
+    merger = PdfMerger()
 
     # Iterate through the list of PDF files and add them to the merger
     for file in pdf_files:
