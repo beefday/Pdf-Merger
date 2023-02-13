@@ -6,7 +6,7 @@ import tkinter.messagebox
 #import pycryptodome
 #import aspose.slides as slides
 
-path = str(os.path.realpath(os.path.dirname(__file__)) + "/")
+
 
 def ppt_to_pdf():
     for file in glob.glob(path + "*.pptx"):
@@ -119,15 +119,18 @@ def loader():
         listbox.insert(tk.END, str(file))
     print(listbox.size())
 
-root = tk.Tk()
-root.geometry("600x400")
-listbox = Drag_and_Drop_Listbox(root)
 
-A = tk.Button(root, text ="Load", command = loader)
-B = tk.Button(root, text ="Merge", command = pdf_merge2)
-#C = tk.Button(root, text ="Compress", command = compress_pdf)
-A.pack()
-B.pack()
-#C.pack()
-listbox.pack(fill=tk.BOTH, expand=True)
-root.mainloop()
+if __name__ == '__main__':
+    path = str(os.path.realpath(os.path.dirname(__file__)) + "/")
+    root = tk.Tk()
+    root.geometry("600x400")
+    listbox = Drag_and_Drop_Listbox(root)
+
+    A = tk.Button(root, text ="Load", command = loader)
+    B = tk.Button(root, text ="Merge", command = pdf_merge2)
+    #C = tk.Button(root, text ="Compress", command = compress_pdf)
+    A.pack()
+    B.pack()
+    #C.pack()
+    listbox.pack(fill=tk.BOTH, expand=True)
+    root.mainloop()
