@@ -1,4 +1,5 @@
 import os
+import sys
 import glob
 import threading
 from PyPDF2 import PdfMerger, PdfReader, PdfWriter
@@ -91,7 +92,16 @@ def pdf_merge_thread():
     threading.Thread(target=pdf_merge).start()
 
 if __name__ == '__main__':
-    path = str(os.path.realpath(os.path.dirname(__file__)) + "/")
+    #path = str(os.path.realpath(os.path.dirname(__file__)) + "/")
+    
+    if getattr(sys, 'frozen', False):
+        application_path = os.path.dirname(sys.executable)
+    else:
+        application_path = os.path.dirname(os.path.abspath(__file__))
+
+    path = os.path.join(application_path, "")
+    #print(f"\"{path}\"")
+
     root = tk.Tk()
     root.geometry("600x400")
     listbox = Drag_and_Drop_Listbox(root)
